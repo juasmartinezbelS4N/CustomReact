@@ -11,18 +11,20 @@
     <div id="root">
 
     </div>
-    <!--Babel ayuda a interpretar JSX-->
     <script type="text/babel">
-      let sonic = "Sonic"
-      let tails = "Tails"
-      let knuckles = "Knuckles"
-      let amy = "Amy Rose"
-      ReactDOM.render(<ul>
-        <li> {sonic} </li>
-        <li> {tails} </li>
-        <li> {knuckles} </li>
-        <li> {amy.toUpperCase()} </li>
-        </ul>, document.getElementById('root'))
+      // Para crear un nuevo componente, debemos usar MAYUSCULAS
+      function Header (){
+        return (<header><h1> Eve's Kitchen</h1> </header>)
+      }
+
+      function Main() {
+        return (<section> <p> We serve the most delicios food around </p> </section>)
+      }
+      function App() {
+        return (<div><Header /> <Main/> </div>)
+      }
+      // lo mismo que poner <div><Header /> <Main/> </div>, solo acepta un elemento
+      ReactDOM.render(<App />, document.getElementById("root"));
     </script>
   </body>
 </html>
