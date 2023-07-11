@@ -13,10 +13,15 @@
     </div>
     <!--Babel ayuda a interpretar JSX-->
     <script type="text/babel">
+      let sonic = "Sonic"
+      let tails = "Tails"
+      let knuckles = "Knuckles"
+      let amy = "Amy Rose"
       ReactDOM.render(<ul>
-        <li> Sonic </li>
-        <li> Tails </li>
-        <li> Knuckles </li>
+        <li> {sonic} </li>
+        <li> {tails} </li>
+        <li> {knuckles} </li>
+        <li> {amy.toUpperCase()} </li>
         </ul>, document.getElementById('root'))
     </script>
   </body>
