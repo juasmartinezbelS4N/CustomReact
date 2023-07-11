@@ -21,20 +21,16 @@
       function Main(props) {
         return (
           <section>
+            <img height={200} src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="una imagen de un restaurante"/>
+            <img height={200} src="./table.png" alt="una imagen de una mesa de restaurante"/>
             <p> We serve the most {props.adjective} food around </p>
-            <ul>
-              {props.dishes.map((dish, index) => (
-                // Usar {index} no es recomendable porque index se crea al renderizar
-                <li key={index}>
-                  {dish}
-                </li>))}
-            </ul>
             <ul>
               {props.dishesObj.map((dish) => (
                 <li key={dish.i}>
                   {dish.title}
                 </li>))}
             </ul>
+
           </section>
         )
       }
@@ -57,7 +53,7 @@
         return (
           <div>
             <Header name = "Zebitas" />
-            <Main adjective="amazing" dishes={dishes} dishesObj={dishObjects}/>
+            <Main adjective="amazing" dishesObj={dishObjects}/>
             <Footer year = {new Date().getFullYear()} />
           </div>)
       }
