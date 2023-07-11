@@ -23,9 +23,16 @@
           <section>
             <p> We serve the most {props.adjective} food around </p>
             <ul>
-              {props.dishes.map((dish) => (
-                <li>
+              {props.dishes.map((dish, index) => (
+                // Usar {index} no es recomendable porque index se crea al renderizar
+                <li key={index}>
                   {dish}
+                </li>))}
+            </ul>
+            <ul>
+              {props.dishesObj.map((dish) => (
+                <li key={dish.i}>
+                  {dish.title}
                 </li>))}
             </ul>
           </section>
@@ -40,11 +47,17 @@
         "Black beans", "Macaroni", "Dish and Fips"
       ]
 
+      const dishObjects = dishes.map((dish, i) => ({
+        // Es mejor crear el key DENTRO de lo que se analiza
+        id: i,
+        title: dish
+      }))
+
       function App() {
         return (
           <div>
             <Header name = "Zebitas" />
-            <Main adjective = "amazing" dishes = {dishes}/>
+            <Main adjective="amazing" dishes={dishes} dishesObj={dishObjects}/>
             <Footer year = {new Date().getFullYear()} />
           </div>)
       }
