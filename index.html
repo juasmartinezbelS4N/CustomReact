@@ -12,18 +12,29 @@
 
     </div>
     <script type="text/babel">
-      // Para crear un nuevo componente, debemos usar MAYUSCULAS
-      function Header (){
-        return (<header><h1> Eve's Kitchen</h1> </header>)
+
+      function Header (props){
+        console.log(props);
+        return (<header><h1> {props.name} Kitchen</h1> </header>)
       }
 
-      function Main() {
-        return (<section> <p> We serve the most delicios food around </p> </section>)
+      function Main(props) {
+        return (<section> <p> We serve the most {props.adjective} food around </p> </section>)
       }
+
+      function Footer(props) {
+        return (<footer> <p>Copyright {props.year} </p></footer>)
+      }
+
       function App() {
-        return (<div><Header /> <Main/> </div>)
+        return (
+          <div>
+            <Header name = "Zebitas" />
+            <Main adjective = "amazing"/>
+            <Footer year = {new Date().getFullYear()} />
+          </div>)
       }
-      // lo mismo que poner <div><Header /> <Main/> </div>, solo acepta un elemento
+
       ReactDOM.render(<App />, document.getElementById("root"));
     </script>
   </body>
