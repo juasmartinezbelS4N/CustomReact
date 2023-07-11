@@ -51,11 +51,12 @@
 
       function App() {
         return (
-          <div>
+          // Se han creado muchos Divs :(. MEJOR USAR React.Fragment!
+          <React.Fragment>
             <Header name = "Zebitas" />
             <Main adjective="amazing" dishesObj={dishObjects}/>
             <Footer year = {new Date().getFullYear()} />
-          </div>)
+          </React.Fragment>)
       }
 
       ReactDOM.render(<App />, document.getElementById("root"));
