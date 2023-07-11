@@ -1,5 +1,5 @@
 import "./App.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function App() {
   /**
@@ -9,6 +9,11 @@ function App() {
    * */
 
   const [emotion, setEmotion] = useState("Happy Happy")
+
+  useEffect(() => {
+    console.log(`It's ${emotion} right now`)
+  }, [emotion] //This is the dependency array, it's only called when this changes. Empty just once
+  );
 
   return (
     <div className="App">
