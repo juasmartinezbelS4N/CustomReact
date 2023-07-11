@@ -19,18 +19,32 @@
       }
 
       function Main(props) {
-        return (<section> <p> We serve the most {props.adjective} food around </p> </section>)
+        return (
+          <section>
+            <p> We serve the most {props.adjective} food around </p>
+            <ul>
+              {props.dishes.map((dish) => (
+                <li>
+                  {dish}
+                </li>))}
+            </ul>
+          </section>
+        )
       }
 
       function Footer(props) {
-        return (<footer> <p>Copyright {props.year} </p></footer>)
+        return (<footer> <p>Copyright {props.year} dishes </p></footer>)
       }
+
+      const dishes = [
+        "Black beans", "Macaroni", "Dish and Fips"
+      ]
 
       function App() {
         return (
           <div>
             <Header name = "Zebitas" />
-            <Main adjective = "amazing"/>
+            <Main adjective = "amazing" dishes = {dishes}/>
             <Footer year = {new Date().getFullYear()} />
           </div>)
       }
