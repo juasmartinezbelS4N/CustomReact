@@ -6,8 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // Does some checks in Dev Mode, not Production
   <React.StrictMode>
-    <App />
+    <App library="Derby"/>
   </React.StrictMode>
 );
 
