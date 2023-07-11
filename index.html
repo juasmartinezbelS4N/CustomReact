@@ -2,25 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
-    <!-- Links rápidos -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
     <title>React *</title>
   </head>
   <body>
-    <!-- El id root es el id básico para añadir cosas e identificar la base-->
     <div id="root">
 
     </div>
-    <script type="text/javascript">
-      // What a fucking mess
-      let monday = React.createElement('li', null, 'Monday')
-      let tuesday = React.createElement('li', null, 'Tuesday')
-      let wednesday = React.createElement('li', null, 'Wednesday')
-      let ul = React.createElement("ul", {style: {color: "blue"}}, monday, tuesday, wednesday)
-      ReactDOM.render(ul, document.getElementById('root'))
-
-
+    <!--Babel ayuda a interpretar JSX-->
+    <script type="text/babel">
       ReactDOM.render(<ul>
         <li> Sonic </li>
         <li> Tails </li>
