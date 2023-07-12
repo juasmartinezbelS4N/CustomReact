@@ -1,26 +1,24 @@
 import "./App.css"
-import { useRef } from "react"
-// useRef alcanza un elemento impuesto y usa su valor
+import { useState } from "react"
 
 function App() {
-  const txtTitle = useRef();
-  const hexColor = useRef();
-
+  const [title, setTitle] = useState("");
+  const [color, setColor] = useState("#000000");
   const submit = (e) => {
     e.preventDefault();
-    const title = txtTitle.current.value;
-    const color = hexColor.current.value;
     alert(`${title}, ${color}`);
-    txtTitle.current.value = '';
-    hexColor.current.value = '';
+    setTitle("");
+    setColor("#000000");
   }
   return (
     <div className="App">
       <form onSubmit={submit}>
         <input type="text"
-          ref={txtTitle}
+          onChange = {(event) => setTitle(event.target.value)}
+          value = {title}
           placeholder="Color title..." />
-        <input ref={hexColor} type="color" />
+        <input onChange = {(event) => setColor(event.target.value)}
+          value = {color} type="color" />
         <button>ADD</button>
       </form>
     </div>
