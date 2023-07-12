@@ -13,14 +13,22 @@ function GithubUser({name, location, company, avatar}){
 }
 
 function App() {
-  // Initial state, recuerda que esto es el initial state
   const [data, setData] = useState(null)
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://api.github.com/users/juasmartinezbelS4N")
       .then((response) => response.json())
-      .then(setData) // (data) => {setData(data)}
-  }, []) //Se triggea por nada
+      .then(setData)
+      .then(()=>setLoading(false))
+      .catch(setError) //(error) => {setError(error)}
+  }, [])
+
+  if(loading) return <h1>Loading</h1>
+  if(error) return <pre>{JSON.stringify(error)}</pre>
+  if(!data) return null
 
   if (data) {
     return <GithubUser name={data.name} location={data.location}
