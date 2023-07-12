@@ -1,34 +1,20 @@
 import "./App.css"
-import { useState } from "react"
-
-// This is a custom hook. Always use 'use' as prefix
-function useInput(initialValue){
-  const [value, setValue] = useState(initialValue);
-  return [{value, onChange: e => setValue(e.target.value)}, () => setValue(initialValue)]
-}
+import { useState, useEffect } from "react"
 
 function App() {
-  const [titleProps, resetTitle] = useInput("");
-  const [colorProps, resetColor] = useInput("#000000");
+  // Initial state, recuerda que esto es el initial state
+  const [data, setData] = useState(null)
 
-  const submit = (e) => {
-    e.preventDefault();
-    alert(`${titleProps.value}, ${colorProps.value}`);
-    resetTitle();
-    resetColor();
+  useEffect(() => {
+    fetch("https://api.github.com/users/juasmartinezbelS4N")
+      .then((response) => response.json())
+      .then(setData) // (data) => {setData(data)}
+  }, []) //Se triggea por nada
+
+  if (data) {
+    return <pre>{JSON.stringify(data, null, 2)}</pre>
   }
-
-  return (
-    <div className="App">
-      <form onSubmit={submit}>
-        <input type="text"
-          {...titleProps} // Meterá automaticamente el value y el onChange
-          placeholder="Color title..." />
-        <input  {...colorProps} type="color" />
-        <button>ADD</button>
-      </form>
-    </div>
-  )
+  return <div className="App">Data</div>
 }
 
 export default App
