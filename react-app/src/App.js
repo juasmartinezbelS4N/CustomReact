@@ -1,37 +1,41 @@
 import "./App.css"
-import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
-function App() {
-  const tahoe_peaks = [
-    { name: "Freel", elevation: 10891 },
-    { name: "Monument", elevation: 10067 },
-    { name: "Pyramid", elevation: 9983 },
-    { name: "Tallac", elevation: 9735 },
-  ]
-
-  function List({ data, renderItem, renderEmpty }) {
-    return !data.length ? (
-      renderEmpty
-    ) : (
-      <ul>
-        {data.map((item) => {
-          return <li key={item.name}>{renderItem(item)}</li>
-        })}
-      </ul>
-    )
-  }
-  // <React.Fragment> -> <>
+function Home() {
   return (
-    <List
-      data={tahoe_peaks}
-      renderEmpty={<p>This list is empty</p>}
-      renderItem={(item) => (
-        <>
-          {item.name} - {item.elevation}
-        </>
-      )}
-    />
+    <div>
+      <Link to="/home">Hom</Link>
+      <Link to="/about"> Aboot</Link>
+      <Link to="/contact"> Contas</Link>
+      <h1>My Website</h1>
+    </div>
   )
 }
 
-export default App
+function About() {
+  return (
+    <div>
+      <Link to="/home">Hom</Link>
+      <Link to="/about"> Aboot</Link>
+      <Link to="/contact"> Contas</Link>
+      <h1>About us</h1>
+    </div>
+  )
+}
+
+function Contact() {
+  return (
+    <div>
+      <Link to="/home">Hom</Link>
+      <Link to="/about"> Aboot</Link>
+      <Link to="/contact"> Contas</Link>
+      <h1>Contact Us</h1>
+    </div>
+  )
+}
+
+function App() {
+  return <Home />
+}
+
+export { App, About, Contact }
