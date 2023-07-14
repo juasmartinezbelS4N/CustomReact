@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-export class MiBoton extends Component {
+export class MiOtroBoton extends Component {
   constructor(props) {
     super(props)
 
@@ -18,10 +18,10 @@ export class MiBoton extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.incrementarConteo} className="btn btn-primary">Conteo de personas {this.state.conteo}</button>
+        <button onDoubleClick={this.incrementarConteo} className="btn btn-primary">Conteo de parejas {this.state.conteo}</button>
       </div>
     )
   }
 }
 
-export default MiBoton
+export default MiOtroBoton
