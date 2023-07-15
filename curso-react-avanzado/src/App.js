@@ -1,16 +1,21 @@
-import './App.css';
-import MiBoton from './components/MiBoton';
-import MiCheck from './components/MiCheck';
-import MiOtroBoton from './components/MiOtroBoton';
+import "./App.css";
+import MiComponente from "./components/MiComponente";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <MiBoton />
-        <MiOtroBoton/>
-        <MiCheck/>
-      </header>
+      <div className="container">
+        <h1 className="display-4">Tienda Online</h1>
+        <p className="lead"> Selecciona un producto </p>
+      </div>
+
+      <div className="container">
+        <div className="row">
+          <MiComponente title="Producto 1" />
+          <MiComponente title="Producto 2" />
+          <MiComponente title="Producto 3" />
+        </div>
+      </div>
     </div>
   );
 }

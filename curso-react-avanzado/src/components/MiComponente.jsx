@@ -1,23 +1,42 @@
-// rcc creación de componente
-// rce creación con export separado
-// rfc creación de una función
+import React, { useState } from "react";
+import MiError from "./MiError";
 
-import React, { Component } from 'react'
-import MiBoton from './MiBoton'
+export default function MiComponente(props) {
 
-export default class MiComponente extends Component {
-  render() {
-    return (
-      <div>
-        <MiBotton />
-        <MiBoton />
-      </div>
-    )
+  const [visibleError, setVisibleError] = React.useState(false);
+
+  const comprarProducto = (e) => {
+    try {
+      e.metodoIncorrecto();
+    } catch(error) {
+      displayError();
+    }
+  };
+
+  const displayError = () => {
+    setVisibleError(true);
   }
-}
 
-// Esto se creó seleccionando el texto, oprimiendo la bombilla y BOOM, super refactorización.
-function MiBotton() {
-  return <button> Esto podría ser un componente </button>
+  return (
+    <div className="col-md-4">
+      <div className="card ">
+        <div className="card-body">
+          <h5 className="card-title">{props.title}</h5>
+          <p className="card-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+          <button onClick={comprarProducto} className="btn btn-primary">
+            Comprar
+          </button>
+          {/*
+            ESTO AYUDA A MOSTRAR COMPONENTES DEPENDIENDO DE LA CONDICIÓN!!!!!!!!
+          */}
+          { visibleError  && <MiError /> }
+        </div>
+      </div>
+    </div>
+  );
 }
-
