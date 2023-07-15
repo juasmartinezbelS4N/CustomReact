@@ -1,4 +1,5 @@
 import "./App.css";
+import ErrorBoundary from "./components/ErrorBoundary";
 import MiComponente from "./components/MiComponente";
 
 function App() {
@@ -11,9 +12,15 @@ function App() {
 
       <div className="container">
         <div className="row">
-          <MiComponente title="Producto 1" />
-          <MiComponente title="Producto 2" />
-          <MiComponente title="Producto 3" />
+          {
+            /*Los Error Boundaries ayudan a mostrar información
+            si llega a haber un error*/
+          }
+          <ErrorBoundary>
+            <MiComponente />
+            <MiComponente title="Producto 2" />
+            <MiComponente title="Producto 3" />
+          </ErrorBoundary>
         </div>
       </div>
     </div>

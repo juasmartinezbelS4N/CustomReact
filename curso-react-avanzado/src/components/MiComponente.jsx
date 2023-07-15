@@ -17,6 +17,10 @@ export default function MiComponente(props) {
     setVisibleError(true);
   }
 
+  if(!props.title){
+    // ESTO ES UN ERROR CWITICO. VA A MATAR LA APLICACIÓN
+    throw new Error("Error en MiComponente")
+  }
   return (
     <div className="col-md-4">
       <div className="card ">
@@ -31,9 +35,6 @@ export default function MiComponente(props) {
           <button onClick={comprarProducto} className="btn btn-primary">
             Comprar
           </button>
-          {/*
-            ESTO AYUDA A MOSTRAR COMPONENTES DEPENDIENDO DE LA CONDICIÓN!!!!!!!!
-          */}
           { visibleError  && <MiError /> }
         </div>
       </div>
