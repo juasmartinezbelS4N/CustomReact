@@ -1,38 +1,20 @@
 import React, { Component } from "react"
-
+import ComponentActualizado from "./contadorHOC"
 export class MiCheck extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      conteo: 0,
-    }
-  }
-
-  /**
-   * ESTAMOS USANDO TANTO EL CONSTRUCTOR Y ESTAS FUNCIONES
-   * ¿HAY FORMA DE MEJORARLO?... SÍ, EL HOC
-   */
-  incrementarConteo = () => {
-    this.setState((prevState) => {
-      return { conteo: prevState.conteo + 1 }
-    })
-  }
-
   render() {
     return (
       <div>
         <label>
           <input
             type="checkbox"
-            onClick={this.incrementarConteo}
+            onClick={this.props.incrementarConteo}
             className="btn btn-primary"
           />
-          Conteo aperturas/cierres&nbsp;{this.state.conteo}
+          Conteo aperturas/cierres&nbsp;&nbsp;{this.props.conteo}
         </label>
       </div>
     )
   }
 }
 
-export default MiCheck
+export default ComponentActualizado(MiCheck)
