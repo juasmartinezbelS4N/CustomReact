@@ -1,10 +1,11 @@
 import "./App.css";
+import Agenda from "./components/Agenda";
 
 function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1 className="display-4">Doctor Nicolás</h1>
+        <Agenda/>
       </div>
     </div>
   );
