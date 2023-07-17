@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
 /** Los react Hooks ayudan a tratar estados dentro de componentes funcionales */
 
 export default function MiComponenenteNuevo() {
   // Esto funcionará como getter/setter
-  const [item1, setItem1] = useState('');
-  const [item2, setItem2] = useState('');
-  const [item3, setItem3] = useState('');
+  const [items, setItems] = useState({ name: "", lastname: "", hobby: "" })
 
   // Las funciones dentro de funciones no usan this
   const onSubmitHandler = (evento) => {
@@ -14,9 +12,11 @@ export default function MiComponenenteNuevo() {
   }
 
   const onInputChange = (input) => {
-    const {value, name} = input.target
-    setItem1(value);
-    //this.setState({[name]: value})
+    const { value, name } = input.target
+    //setItems({...items, [name]: value})
+    // o mejor aún
+
+    setItems((prevState) => ({...prevState, [name]: value}))
   }
 
   return (
@@ -26,14 +26,14 @@ export default function MiComponenenteNuevo() {
           <input
             type="text"
             className="form-control"
-            name="item1"
+            name="name"
             placeholder="Nombre"
             onChange={onInputChange}
           />
 
           <input
             type="text"
-            name="item2"
+            name="lastname"
             className="form-control"
             placeholder="Apellido"
             onChange={onInputChange}
@@ -41,7 +41,7 @@ export default function MiComponenenteNuevo() {
 
           <input
             type="text"
-            name="item3"
+            name="hobby"
             className="form-control"
             placeholder="Hobby"
             onChange={onInputChange}
@@ -52,9 +52,15 @@ export default function MiComponenenteNuevo() {
           </button>
         </div>
       </form>
-      <h1>Valor 1: {item1}</h1>
-      <h1>Valor 2: {item2}</h1>
-      <h1>Valor 3: {item3}</h1>
+      <ul>
+        {Object.keys(items).map((key) => (
+          <li key={key}>
+            <h1>
+              {key}: {items[key]}
+            </h1>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
