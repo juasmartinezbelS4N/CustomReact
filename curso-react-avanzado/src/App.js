@@ -1,25 +1,23 @@
-import "./App.css"
-import { Component } from "react"
+import "./App.css";
+import MiComponente from "./components/MiComponente";
 
-import Item from "./components/Item"
-
-export function App1() {
+function App() {
   return (
     <div className="App">
-      <div className="container">Hola mundo</div>
+      <div className="container">
+        <h1 className="display-4">Tienda Online</h1>
+        <p className="lead"> Selecciona un producto </p>
+      </div>
+
+      <div className="container">
+        <div className="row">
+          <MiComponente title="Producto 1" />
+          <MiComponente title="Producto 2" />
+          <MiComponente title="Producto 3" />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-
-export default class App extends Component {
-  render() {
-    return <div></div>
-  }
-}
-
-/*
-* Si uso manejo de estados, constructor, HOC, mejor usar COMPONENTE
-* Si manejo mucho más hooks, mejor usar FUNCIÓN
-*/
-
+export default App;
