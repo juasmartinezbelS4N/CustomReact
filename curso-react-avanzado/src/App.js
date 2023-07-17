@@ -5,15 +5,12 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1 className="display-4">Tienda Online</h1>
-        <p className="lead"> Selecciona un producto </p>
+        <h1 className="display-4">Ingreso Club</h1>
       </div>
 
       <div className="container">
         <div className="row">
-          <MiComponente title="Producto 1" />
-          <MiComponente title="Producto 2" />
-          <MiComponente title="Producto 3" />
+          <MiComponente/>
         </div>
       </div>
     </div>
