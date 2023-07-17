@@ -1,4 +1,5 @@
 import "./App.css";
+import MiComponenenteNuevo from "./components/MiComponenenteNuevo";
 import MiComponente from "./components/MiComponente";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
 
       <div className="container">
         <div className="row">
-          <MiComponente/>
+          <MiComponenenteNuevo/>
         </div>
       </div>
     </div>

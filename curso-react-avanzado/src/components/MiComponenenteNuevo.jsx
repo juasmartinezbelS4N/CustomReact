@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+/** Los react Hooks ayudan a tratar estados dentro de componentes funcionales */
 
 export default function MiComponenenteNuevo() {
+  // Esto funcionará como getter/setter
+  const [item1, setItem1] = useState('');
+  const [item2, setItem2] = useState('');
+  const [item3, setItem3] = useState('');
+
   // Las funciones dentro de funciones no usan this
   const onSubmitHandler = (evento) => {
     evento.preventDefault()
@@ -9,7 +15,8 @@ export default function MiComponenenteNuevo() {
 
   const onInputChange = (input) => {
     const {value, name} = input.target
-    this.setState({[name]: value})
+    setItem1(value);
+    //this.setState({[name]: value})
   }
 
   return (
@@ -45,9 +52,9 @@ export default function MiComponenenteNuevo() {
           </button>
         </div>
       </form>
-      <h1>Valor 1: {this.state.item1}</h1>
-      <h1>Valor 2: {this.state.item2}</h1>
-      <h1>Valor 3: {this.state.item3}</h1>
+      <h1>Valor 1: {item1}</h1>
+      <h1>Valor 2: {item2}</h1>
+      <h1>Valor 3: {item3}</h1>
     </div>
   )
 }
