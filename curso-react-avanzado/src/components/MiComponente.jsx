@@ -6,6 +6,18 @@ export default class MiComponente extends Component {
     evento.preventDefault();
   }
 
+  onNombreInputChange = (input) => {
+    console.log(input.target.value)
+  }
+
+  onApellidoInputChange = (input) => {
+    console.log(input.target.value)
+  }
+
+  onHobbyInputChange = (input) => {
+    console.log(input.target.value)
+  }
+
   render() {
     return (
       <div className="formularios col-md-5">
@@ -18,6 +30,7 @@ export default class MiComponente extends Component {
               className="form-control"
               name="item1"
               placeholder="Nombre"
+              onChange={this.onNombreInputChange}
             />
 
             <input
@@ -25,6 +38,7 @@ export default class MiComponente extends Component {
               name="item2"
               className="form-control"
               placeholder="Apellido"
+              onChange={this.onApellidoInputChange}
             />
 
             <input
@@ -32,6 +46,7 @@ export default class MiComponente extends Component {
               name="item3"
               className="form-control"
               placeholder="Hobby"
+              onChange={this.onHobbyInputChange}
             />
 
             <button className="btn btn-primary" type="submit">
