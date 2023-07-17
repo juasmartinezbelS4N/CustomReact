@@ -6,10 +6,12 @@ export default class MiComponente extends Component {
     this.state = { comprado: false, visibleError: false }
 
     // El This del constructor y del componente, son el mismo
-    this.comprarProducto = this.comprarProducto.bind(this)
+    // this.comprarProducto = this.comprarProducto.bind(this)
+
+    // Con un ARROW FUNCTION hacer el binding o no es necesario
   }
 
-  comprarProducto(e){
+  comprarProducto = (e) => {
     try {
       this.setState({ ...this.state, comprado: true })
     } catch (error) {
