@@ -15,26 +15,14 @@ export default class MiComponente extends Component {
     evento.preventDefault()
   }
 
-  onNombreInputChange = (input) => {
-    const {value} = input.target
-    this.setState({item1: value})
-  }
-
-  onApellidoInputChange = (input) => {
-    const {value} = input.target
-    this.setState({item2: value})
-  }
-
-  onHobbyInputChange = (input) => {
-    const {value} = input.target
-    this.setState({item3: value})
+  onInputChange = (input) => {
+    const {value, name} = input.target
+    this.setState({[name]: value})
   }
 
   render() {
     return (
       <div className="formularios col-md-5">
-        {/*<form> Por defecto hacer una etiqueta form, te redirige la página*/}
-        {/* Es mejor hacer un evento onClick para el botón submit Ó:*/}
         <form onSubmit={this.onSubmitHandler}>
           <div className="form-group">
             <input
@@ -42,7 +30,7 @@ export default class MiComponente extends Component {
               className="form-control"
               name="item1"
               placeholder="Nombre"
-              onChange={this.onNombreInputChange}
+              onChange={this.onInputChange}
             />
 
             <input
@@ -50,7 +38,7 @@ export default class MiComponente extends Component {
               name="item2"
               className="form-control"
               placeholder="Apellido"
-              onChange={this.onApellidoInputChange}
+              onChange={this.onInputChange}
             />
 
             <input
@@ -58,7 +46,7 @@ export default class MiComponente extends Component {
               name="item3"
               className="form-control"
               placeholder="Hobby"
-              onChange={this.onHobbyInputChange}
+              onChange={this.onInputChange}
             />
 
             <button className="btn btn-primary" type="submit">
