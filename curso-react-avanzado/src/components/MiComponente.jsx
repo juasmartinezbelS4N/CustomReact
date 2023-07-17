@@ -54,9 +54,9 @@ export default class MiComponente extends Component {
             </button>
           </div>
         </form>
-        <h1>Valor 1: {this.state.item1}</h1>
-        <h1>Valor 2: {this.state.item2}</h1>
-        <h1>Valor 3: {this.state.item3}</h1>
+        <h1 data-testid="item1">Valor 1: {this.state.item1}</h1>
+        <h1 data-testid="item2">Valor 2: {this.state.item2}</h1>
+        <h1 data-testid="item3">Valor 3: {this.state.item3}</h1>
       </div>
     )
   }
