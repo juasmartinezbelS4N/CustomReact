@@ -23,7 +23,7 @@ export default class MiComponente extends Component {
   render() {
     return (
       <div className="formularios col-md-5">
-        <form onSubmit={this.onSubmitHandler}>
+        <form onSubmit={this.onSubmitHandler} data-testid="formulario">
           <div className="form-group">
             <input
               type="text"
